@@ -14,7 +14,7 @@ const fetchSSE = require('./fetchsse.js');
 
 
 app.all(`*`, async (req, res) => {
-  const url = `https://api.openai.com${req.url}`;
+  const url = `https://api.openai.com/v1${req.url}`;
   // 从 header 中取得 Authorization': 'Bearer 后的 token
   const token = req.headers.authorization?.split(' ')[1];
   if( !token ) return res.status(403).send('Forbidden');
